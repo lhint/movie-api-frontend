@@ -56,9 +56,9 @@ function App() {
     try {
       const newMovie = await addMovie({ title, year, genre, rating });
       setMovies([...movies, newMovie]);
-      setTitle("Avatar");
+      setTitle("");
       setYear(2025);
-      setGenre("Action");
+      setGenre("");
       setRating(0);
     } catch (e) {
       console.error("Error adding movie:", e);
@@ -68,7 +68,7 @@ function App() {
 
   // delete handler
   async function deleteMovie(id: number): Promise<void> {
-    const response = await fetch(`http://localhost:8080/delete-movie/${id}`, {
+    const response = await fetch(`http://localhost:8080/delete/${id}`, {
       method: "DELETE",
     });
 
